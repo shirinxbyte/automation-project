@@ -1,0 +1,106 @@
+{
+  "name": "Daily Reminder Bot",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "2d23bede-a994-49b7-a4c0-0d370267bf2e",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d729266-74d0-446e-b63e-c9c0b89531cc",
+              "name": "Message",
+              "value": "Hey Shirin 🌸 Don’t forget to stay grounded and trust your process today!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "5e21e791-7345-4fca-99e4-af6bda6cdad6",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "sendTo": "shirintae@gmail.com",
+        "subject": "Daily Motivation",
+        "message": "={{ $json.Message }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        352,
+        48
+      ],
+      "id": "ec4e61dd-76f7-4465-9390-c29a53ccc8ca",
+      "name": "Send a message",
+      "webhookId": "0d575c57-1c71-4893-9e24-a03d083ffcc2",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "4y6wOgaSgQhgeu5r",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c624fe42-7ae1-4e8a-935e-05af0300a7e5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0a2469848226e15aa523181ce8f51ad296ca871b7ea81ac325391c24d9455970"
+  },
+  "id": "2lcKeWu2QwiqKwYA",
+  "tags": []
+}

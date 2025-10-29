@@ -7,7 +7,7 @@
           "interval": [
             {
               "triggerAtHour": 8
-            }
+            } 
           ]
         } 
       },

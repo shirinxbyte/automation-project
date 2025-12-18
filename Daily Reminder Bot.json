@@ -1,7 +1,7 @@
  {      
   "name": "Daily Reminder Bot" ,
   "nodes": [
-    {
+    { 
       "parameters": { 
         "rule": {
           "interval": [
